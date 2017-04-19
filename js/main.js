@@ -1,14 +1,17 @@
-// "use strict";
+"use strict";
 
 var pineTree = {};
-
-
-
+var btn = document.getElementById('btn');
+    console.log(btn);
+var branch = document.getElementById('char');
+    console.log('branch is ', branch);
+var height = document.getElementById('height');
+    console.log('height is ', height);
+  var space = " ";
+  // var C = output.height; //blerg this isn't right. 
+  
 
 //add event listeners & fix C (constant/trunk/whatever)
-
-// //---button click?
-// btn.onclick = tree();
 
 
 // //---keydown return
@@ -17,24 +20,26 @@ var pineTree = {};
 //     tree();
 //   }
 
-function tree(taco){
+function tree(needle){
   var output = "";
-  var branch = document.getElementById('char').value;
-  var height = document.getElementById('height').value;
-  var x = height - 1;
-  var C = pineTree.height; //blerg this isn't right. 
-  var space = "\n";
-  var btn = document.getElementById('btn');
+  var x = height.value - 1;
 
-  btn.onclick = console.log(output, {    
-      if( !(taco.height) || !(taco.char) ) {
+  if(!(needle.size) || !(needle.unit)) {
         alert("both fields must contain a value")
-      } else{
-        for (i = 0; i < taco.height; i++) {
-          pineTree += space.repeat(x) + taco.branch.repeat(i);
-          pineTree += taco.C + taco.branch.repeat(i);
-          pineTree += '<br>';
+      } else{ 
+        output += space.repeat(x) + "*";
+        for (var i = 0; i < needle.size; i++) {
+          output += '\n' + space.repeat(x-i) + needle.unit.repeat(i) 
+          + needle.unit + needle.unit.repeat(i);
+          
         }
+        console.log(output);
       }
-  })
-}
+  }
+
+
+  btn.addEventListener("click", function() {
+    pineTree.size = height.value;
+    pineTree.unit = char.value; 
+    tree(pineTree);  
+    })

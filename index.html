@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>d19-Milestone1</title>
-  <script type="text/javascript" src="/js/main.js"></script>
+
 </head>
 <body>
   <header>
@@ -12,21 +12,21 @@
     <h5>the-static-web</h5>
   </header>
   <main>
-    <form method="post" action="tree()" class="userInput">
+    <div class="userInput">
       
       <fieldset>
         <legend>OMG! We can build a Pine Tree array!</legend>
         <label for="height">How tall should our tree be..?</label>
-          <input type="text" name="height" placeholder="(any # will do)"><br>
+          <input type="text" name="height" id="height" placeholder="(any #)"><br>
         <label for="char">Which character from the keyboard should we use to build our tree?</label>
-          <input type="text" name="char" placeholder="(choose character frm keyboard!)">
+          <input type="text" name="char" id="char" placeholder="(choose character frm keyboard!)">
       </fieldset>
 
       <fieldset>
         <legend>...Are you ready for this?</legend>
-        <button type="submit" id="btn">Grow your tree</button>
+        <input type="button" id="btn" value="Grow your tree">
       </fieldset>
-    </form>
+    </div>
 <!--CHALLENGE CONTENT-->
 
   </main>
@@ -37,5 +37,6 @@
       <h4>&copy;rue.TH</h4>
     </div>
   </footer>
+  <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
