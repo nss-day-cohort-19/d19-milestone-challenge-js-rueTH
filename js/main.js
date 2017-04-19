@@ -14,11 +14,7 @@ var height = document.getElementById('height');
 //add event listeners & fix C (constant/trunk/whatever)
 
 
-// //---keydown return
-// onkeydown = function(returnEvent){
-//   if(returnEvent.which == 13);
-//     tree();
-//   }
+
 
 function tree(needle){
   var output = "";
@@ -30,13 +26,33 @@ function tree(needle){
         output += space.repeat(x) + "*";
         for (var i = 0; i < needle.size; i++) {
           output += '\n' + space.repeat(x-i) + needle.unit.repeat(i) 
-          + needle.unit + needle.unit.repeat(i);
-          
+                    + needle.unit + needle.unit.repeat(i); 
         }
+        output += '\n' + space.repeat(x-1) + "|◙|" 
+                  + space.repeat(x) + "...and that's how the Grinch saved Christmas.";
+               
+
         console.log(output);
       }
   }
 
+//---keydown return
+
+height.addEventListener('keydown', function(event){
+  console.log(event);
+  if(event.which == 13);
+    pineTree.size = height.value;
+    pineTree.unit = char.value;
+    tree(pineTree);
+  })
+
+branch.addEventListener('keydown', function(event){
+  console.log(event);
+  if(event.which == 13);
+    pineTree.size = height.value;
+    pineTree.unit = char.value;
+    tree(pineTree);
+  })
 
   btn.addEventListener("click", function() {
     pineTree.size = height.value;
