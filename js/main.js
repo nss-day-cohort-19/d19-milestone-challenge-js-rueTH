@@ -7,55 +7,40 @@ var branch = document.getElementById('char');
     console.log('branch is ', branch);
 var height = document.getElementById('height');
     console.log('height is ', height);
-  var space = " ";
-  // var C = output.height; //blerg this isn't right. 
-  
-
-//add event listeners & fix C (constant/trunk/whatever)
+var space = " ";
 
 
+//event Listeners
+btn.addEventListener("click", checkValues)
+height.addEventListener('keydown', checkKeydown)
+branch.addEventListener('keydown', checkKeydown)
 
-
+function checkKeydown(event){
+  if(event.which === 13) {
+    checkValues()
+  }
+} 
+function checkValues(event){
+  if(!(height.value) || !(char.value)) {
+  alert("both fields must contain a value")
+  } else{ 
+  buildObject()
+  }
+}
+function buildObject(){
+  pineTree.size = height.value;
+  pineTree.unit = char.value;
+  tree(pineTree);
+}
 function tree(needle){
   var output = "";
   var x = height.value - 1;
-
-  if(!(needle.size) || !(needle.unit)) {
-        alert("both fields must contain a value")
-      } else{ 
-        output += space.repeat(x) + "*";
-        for (var i = 0; i < needle.size; i++) {
-          output += '\n' + space.repeat(x-i) + needle.unit.repeat(i) 
-                    + needle.unit + needle.unit.repeat(i); 
-        }
-        output += '\n' + space.repeat(x-1) + "|◙|" 
-                  + space.repeat(x) + "...and that's how the Grinch saved Christmas.";
-               
-
-        console.log(output);
-      }
+  output += space.repeat(x) + "*";
+  for (var i = 0; i < needle.size; i++) {
+      output += '\n' + space.repeat(x-i) + needle.unit.repeat(i) 
+                     + needle.unit + needle.unit.repeat(i); 
   }
-
-//---keydown return
-
-height.addEventListener('keydown', function(event){
-  console.log(event);
-  if(event.which == 13);
-    pineTree.size = height.value;
-    pineTree.unit = char.value;
-    tree(pineTree);
-  })
-
-branch.addEventListener('keydown', function(event){
-  console.log(event);
-  if(event.which == 13);
-    pineTree.size = height.value;
-    pineTree.unit = char.value;
-    tree(pineTree);
-  })
-
-  btn.addEventListener("click", function() {
-    pineTree.size = height.value;
-    pineTree.unit = char.value; 
-    tree(pineTree);  
-    })
+  output += '\n' + space.repeat(x-1) + "|◙|" 
+                 + space.repeat(x) + "...and that's how the Grinch saved Christmas.";
+  console.log(output);
+}
